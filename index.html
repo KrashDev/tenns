@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>tenns, for love of the game</title>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Raleway+Dots|Roboto" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper #03a9f4 light-blue">
+            <!-- <a href="/" style="font-size:20px;color:white;float:left;text-indent:10px;">tenns</a> -->
+            <a href="/" class="brand-logo"><img src="tennis.svg" style="width:75%; padding-left:25px;"></a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right:25px;">
+                <li><a href="">home</a></li>
+                <li><a href="">about</a></li>
+                <li><a href="map.html">courts</a></li>
+                <li><a href="">login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- background video -->
+    <div class="video-container vidya">
+        <video controls muted autoplay loop class="fillWidth">
+            <source src="assets/images/wall.mp4" type="video/mp4" />
+            <source src="assets/images/wall.mp4" type="video/webm" />
+        </video>
+        <!-- <div class="poster hidden">
+            <img src="" alt="">
+        </div> -->
+    </div>
+
+    <div class="start-it">
+        1. Make a profile. <br> 2. Put in your skill level. <br> 3 .Find people in your area to hit with. <br> It's that simple.
+        <br><br>
+        <a button-targer="modal1" class="modal-trigger waves-effect waves-light btn #03a9f4 light-blue" href="#modal1">Get Started</button></a>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content col s8">
+            <form class="col s8">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Batman" id="user_name" type="text" class="validate">
+                        <label for="user_name">Enter a username:</label>
+                    </div>
+                    <div class="modal-messages">This will show up when you message people to schedule a time to hit!</div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Robin is lame" id="password" type="password" class="validate">
+                        <label for="password">Enter a password:</label>
+                    </div>
+                    <div class="modal-messages">Your password must contain at least 6 characters.</div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="IAmTheNight@gmail.com" id="email" type="email" class="validate">
+                        <label for="email">Enter an email:</label>
+                    </div>
+                    <div class="modal-messages">We promise we won't email you nonsense.</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="portfolio">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="assets/images/dzg.png">
+                        <span class="card-title">Donny Gabai</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">mail</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p>Skill Level</p>
+                        <!-- Heres the stars image depicting skill level -->
+                        <img class="skill-level" src="skillstars.svg">
+                        <p>Hey, I'm Donny. I love playing tennis! I'm at an intermediate level and not very competitive. I'm always looking for new people to hit with and practice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer">
+        <div class="container footer-links">
+            <a class="grey-text text-lighten-4" href="">home |</a>
+            <a class="grey-text text-lighten-4" href="">about |</a>
+            <a class="grey-text text-lighten-4" href="">courts |</a>
+            <a class="grey-text text-lighten-4" href="">login</a>
+            <p id="copyright">Copyright &copy; 2017 tenns - never hit alone again</p>
+        </div>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+<script src="assets/javascript/app.js"></script>
+<script>
+    $(document).ready(function() {
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('#modal1').modal();
+    });
+</script>
+
+</html>
