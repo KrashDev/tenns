@@ -13,14 +13,24 @@ a {
 
 .modal-messages {
     font-size: 20px;
-    text-indent: 10px;
     color: #666666;
+}
+
+#side-panel {
+    position: absolute;
+    left: 15%;
+    top: 133%;
+    z-index: 1;
+    font-size: 100px;
+    font-weight: bold;
+    color: #c6ff00;
+    font-family: 'Mr De Haviland', cursive;
 }
 
 .city-tag {
     position: absolute;
     left: 62%;
-    top: 8%;
+    top: 133%;
     z-index: 1;
     font-size: 100px;
     /* padding-bottom: 0px;
@@ -65,15 +75,52 @@ a {
 
 
 /* .vidya {
-    filter: grayscale(100%); */
-
-
+    filter: grayscale(100%); 
 }
-a,
-.brand-logo {
+*/
+
+.breaker {
+    /* padding-top: 50px; */
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    color: #03a9f4;
+    background-color: #ffffff;
+    height: 100px;
+}
+
+#map {
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 46%;
+    height: 500px;
+    width: 50%;
+    border-radius: 7px;
+}
+
+.marker {
+    background-image: url('http://www.hippokrat.net/assets/images/location-black-png-10.png');
+    /* background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Tennis_ball_3.svg/1024px-Tennis_ball_3.svg.png'); */
+    background-size: cover;
+    color: #ccff33;
+    width: 25px;
+    height: 25px;
+    /*border-radius: 50%;*/
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 320px;
     height: auto;
-    width: 6%;
+    font-size: 10px;
 }
+
+.mapInfo {
+    position: fixed;
+    right: 100px;
+}
+
 .portfolio {
     position: absolute;
     top: 20%;
@@ -81,14 +128,17 @@ a,
     height: 5%;
     width: 40%;
 }
+
 .no-video .video-container video,
 .touch .video-container video {
     display: none;
 }
+
 .no-video .video-container .poster,
 .touch .video-container .poster {
     display: block !important;
 }
+
 .video-container {
     text-align: center;
     z-index: 0;
@@ -99,13 +149,15 @@ a,
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #333333;
+    /* background: #333333; */
 }
+
 .video-container .poster img {
     width: 100%;
     bottom: 0;
     position: absolute;
 }
+
 .video-container .filter {
     z-index: 0;
     position: absolute;
@@ -113,12 +165,14 @@ a,
     width: 100%;
 }
 
+
 /* .video-container video {
     position: absolute;
     z-index: 0;
     padding-left: -1px;
     top: 0;
 } */
+
 
 /* .video-container video.fillWidth {
     width: 100%;

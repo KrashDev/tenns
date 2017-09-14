@@ -6,8 +6,9 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Raleway+Dots|Roboto" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Raleway|Mr+De+Haviland|Raleway+Dots|Roboto" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
@@ -30,7 +31,7 @@
 
     <!-- background video -->
     <div class="video-container vidya">
-        <video controls muted autoplay loop class="fillWidth">
+        <video muted autoplay loop class="fillWidth">
             <source src="assets/images/wall.mp4" type="video/mp4" />
             <source src="assets/images/wall.mp4" type="video/webm" />
         </video>
@@ -94,16 +95,131 @@
             </div>
         </div>
     </div>
-    <footer class="page-footer">
-        <div class="container footer-links">
-            <a class="grey-text text-lighten-4" href="">home |</a>
-            <a class="grey-text text-lighten-4" href="">about |</a>
-            <a class="grey-text text-lighten-4" href="">courts |</a>
-            <a class="grey-text text-lighten-4" href="">login</a>
-            <p id="copyright">Copyright &copy; 2017 tenns - never hit alone again</p>
-        </div>
-    </footer>
+
+    <div class="breaker">
+        The tennis courts in your area
+    </div>
+
+    <img class="background-image" src="assets/images/tennis.jpg" alt="working">
+
+    <div class="city-tag">
+        Atlanta
+    </div>
+
+    <div class="row">
+        <div id="map"></div>
+
+        <!-- <div id="side-panel">
+            How to!
+        </div> -->
+
+        <script>
+            //for a 3d view of the map, hold ctrl and scroll
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZGdhYmFpIiwiYSI6ImNqNDNweGx1dDA3NG0zM243MGQzNzQ0bWcifQ.8Auku3GqYC_xjQFCYBtEMg';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v9',
+                center: [-84.38, 33.78], // starting position
+                zoom: 9 // starting zoom
+
+            });
+
+            // Add zoom and rotation controls to the map.
+            map.addControl(new mapboxgl.NavigationControl());
+
+            var cities = [{
+                "name": "Atlanta GA",
+                "lat": 33.775,
+                "lng": -84.382,
+                "description": ""
+            }, {
+                "name": "Blackburn Tennis Center",
+                "lat": 33.896,
+                "lng": -84.327,
+                "description": "Address: 3501 Ashford Dunwoody Rd, Atlanta, GA 30319 " + "Phone: (770) 451-5226 " + "number of courts: n/a"
+            }, {
+                "name": "Chastain Park Tennis Center",
+                "lat": 33.873,
+                "lng": -84.395,
+                "description": "Address: 10 W Wieuca Rd NE, Atlanta, GA 30342 " + "Phone: (404) 255-3210 " + "number of courts: 9"
+            }, {
+                "name": "Hit Atlanta Tennis Center",
+                "lat": 33.887,
+                "lng": -84.261,
+                "description": "Address: 3110 Presidential Dr, Atlanta, GA 30340 " + "Phone: (678) 953-1967 " + "number of courts: n/a"
+            }, {
+                "name": "Shady Valley Park Tennis Courts ",
+                "lat": 33.830,
+                "lng": -84.352,
+                "description": "Address: 2720 Shady Valley Dr NE, Atlanta, GA 30324 " + "Phone: n/a " + "number of courts: n/a"
+            }, {
+                "name": "Bitsy Grant Tennis Center",
+                "lat": 33.814,
+                "lng": -84.406,
+                "description": "Address: 2125 Northside Dr NW, Atlanta, GA 30318 " + "Phone: (404) 609-7193 " + "number of courts: n/a"
+            }, {
+                "name": "Orlando FL",
+                "lat": 28.538,
+                "lng": -81.379,
+                "description": "Address: 3501 Ashford Dunwoody Rd, Atlanta, GA 30319 " + "Phone: (770) 451-5226 " + "number of courts: n/a"
+            }, {
+                "name": "Fiarfax, VA",
+                "lat": 38.846,
+                "lng": -77.306,
+                "description": "Address: 3501 Ashford Dunwoody Rd, Atlanta, GA 30319 " + "Phone: (770) 451-5226 " + "number of courts: n/a"
+            }, {
+                "name": "San Francisco CA",
+                "lat": 37.929,
+                "lng": -122.430,
+                "description": "Address: 3501 Ashford Dunwoody Rd, Atlanta, GA 30319 " + "Phone: (770) 451-5226 " + "number of courts: n/a"
+            }, {
+                "name": "Memphis TN",
+                "lat": 35.152,
+                "lng": -90.052,
+                "description": "Address: 3501 Ashford Dunwoody Rd, Atlanta, GA 30319 " + "Phone: (770) 451-5226 " + "number of courts: n/a"
+            }];
+
+            console.log(cities);
+
+            var newArray = ["i", "o", 2, 3, 4, 5, 6, 7, 8, 9];
+
+            for (item in newArray) {
+                console.log(newArray[item]);
+            }
+
+            for (city in cities) {
+                console.log(cities[city]["name"]);
+                var popup = new mapboxgl.Popup({
+                        offset: 50
+                    })
+                    .setText(cities[city]["description"]);
+                var el = document.createElement('div');
+                el.className = 'marker';
+                new mapboxgl.Marker(el, {
+                        offset: [-25, -50]
+                    })
+                    .setLngLat([cities[city]["lng"], cities[city]["lat"]])
+                    .setPopup(popup) // sets a popup on this marker
+                    .addTo(map);
+
+            }
+        </script>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTYPTvK0C6-IZx6x0PU85aRNy7JfCYkFs&callback=initMap">
+        </script>
+
+
+        <footer class="page-footer">
+            <div class="container footer-links">
+                <a class="grey-text text-lighten-4" href="">home |</a>
+                <a class="grey-text text-lighten-4" href="">about |</a>
+                <a class="grey-text text-lighten-4" href="">courts |</a>
+                <a class="grey-text text-lighten-4" href="">login</a>
+                <p id="copyright">Copyright &copy; 2017 tenns - never hit alone again</p>
+            </div>
+        </footer>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 <script src="assets/javascript/app.js"></script>
 <script>
