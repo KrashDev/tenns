@@ -10,6 +10,7 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/tennis.png">
 
 </head>
 
@@ -18,12 +19,12 @@
     <nav>
         <div class="nav-wrapper #03a9f4 light-blue">
             <!-- <a href="/" style="font-size:20px;color:white;float:left;text-indent:10px;">tenns</a> -->
-            <a href="/" class="brand-logo"><img src="tennis.svg" style="width:75%; padding-left:25px;"></a>
+            <a href="/" class="brand-logo"><img src="assets/images/logo.png" style="width:105%; padding-top:5px;padding-left:25px;"></a>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right:25px;">
                 <li><a href="">home</a></li>
                 <li><a href="">about</a></li>
-                <li><a href="map.html">courts</a></li>
+                <li class="courts"><a href="">courts</a></li>
                 <li><a href="">login</a></li>
             </ul>
         </div>
@@ -92,6 +93,33 @@
                         <p>Hey, I'm Donny. I love playing tennis! I'm at an intermediate level and not very competitive. I'm always looking for new people to hit with and practice.</p>
                     </div>
                 </div>
+
+<!--                 <div class="card2">
+                    <div class="card-image">
+                        <img src="assets/images/img_1488.jpg">
+                        <span class="card-title">Malcolm Strong</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">mail</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p>Skill Level</p>
+                        <img class="skill-level" src="skillstars.svg">
+                        <p>Hey, My name is Malcolm! I love playing tennis! I'm at a pro level. I'm always looking for new people to hit with and practice.</p>
+                    </div>
+                </div>
+
+                <div class="card3">
+                    <div class="card-image">
+                        <img src="assets/images/img_1488.jpg">
+                        <span class="card-title">Malcolm Strong</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">mail</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p>Skill Level</p>
+                        <img class="skill-level" src="skillstars.svg">
+                        <p>Hey, My name is Malcolm! I love playing tennis! I'm at a pro level. I'm always looking for new people to hit with and practice.</p>
+                    </div>
+                </div> -->
+
             </div>
         </div>
     </div>
@@ -106,14 +134,45 @@
         Atlanta
     </div>
 
-    <div class="row">
+    <div class="instructions-tag">
+        &bull; These are all of the courts in your area! 
+        <br>
+        <br>
+        &bull; Click a marker to get started!
+    </div>
+
+
         <div id="map"></div>
 
         <!-- <div id="side-panel">
             How to!
         </div> -->
-
+        <footer class="page-footer">
+            <div class="container footer-links">
+                <a class="grey-text text-lighten-4" href="">home |</a>
+                <a class="grey-text text-lighten-4" href="">about |</a>
+                <a class="grey-text text-lighten-4" href="">courts |</a>
+                <a class="grey-text text-lighten-4" href="">login</a>
+                <p id="copyright">Copyright &copy; 2017 tenns - never hit alone again</p>
+            </div>
+        </footer>
+        </body>
         <script>
+
+            $(document).ready(function() {
+    
+                var $deer = $('.deer');
+                var $win = $(window);
+                var $learn = $('.courts');
+
+                $learn.click(function() {
+                    $('html, body').animate({
+                        scrollTop: $("#bio").offset().top
+                    }, 1500);
+                    console.log(1);
+                });
+                console.log(2);
+            });
             //for a 3d view of the map, hold ctrl and scroll
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGdhYmFpIiwiYSI6ImNqNDNweGx1dDA3NG0zM243MGQzNzQ0bWcifQ.8Auku3GqYC_xjQFCYBtEMg';
             var map = new mapboxgl.Map({
@@ -207,19 +266,6 @@
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTYPTvK0C6-IZx6x0PU85aRNy7JfCYkFs&callback=initMap">
         </script>
-
-
-        <footer class="page-footer">
-            <div class="container footer-links">
-                <a class="grey-text text-lighten-4" href="">home |</a>
-                <a class="grey-text text-lighten-4" href="">about |</a>
-                <a class="grey-text text-lighten-4" href="">courts |</a>
-                <a class="grey-text text-lighten-4" href="">login</a>
-                <p id="copyright">Copyright &copy; 2017 tenns - never hit alone again</p>
-            </div>
-        </footer>
-</body>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 <script src="assets/javascript/app.js"></script>
 <script>
